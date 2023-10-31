@@ -2,14 +2,14 @@ const dbConfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  port: dbConfig.PORT,
-  dialect: dbConfig.dialect,
+  host: dbConfig?.HOST,
+  port: dbConfig?.PORT,
+  dialect: dbConfig?.dialect,
   pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle,
+    max: dbConfig.pool?.max || 5,
+    min: dbConfig.pool?.min || 0,
+    acquire: dbConfig.pool?.acquire || 30000,
+    idle: dbConfig.pool?.idle || 10000,
   },
 });
 

@@ -13,7 +13,7 @@ const db = require("./app/models");
 db.sequelize
   .sync()
   .then((result) => {
-    console.log("result", result);
+    // console.log("result", result);
   })
   .catch((err) => {
     console.log("err", err);
@@ -22,6 +22,8 @@ db.sequelize
 app.get("/", (req, res) => {
   res.json("Welcome to the palak's backend");
 });
+// Routes
+require("./app/routes/user.routes.js")(app);
 
 const PORT = 5000;
 
