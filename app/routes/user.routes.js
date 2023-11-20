@@ -4,6 +4,7 @@ module.exports = (app) => {
   var router = require("express").Router();
   // Create a new User
   router.post("/", user.Create);
+  router.put("/:id", user.update);
 
   app.use("/api/users", router);
 };
